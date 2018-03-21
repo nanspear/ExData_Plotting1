@@ -7,7 +7,7 @@ hhpower <- read.table("household_power_consumption.txt", header = TRUE, sep = ";
 
 #Create Data Subset and DateTime Column
 hhfeb <- subset(hhpower, Date %in% c("1/2/2007", "2/2/2007"))
-hhfeb$Date <- as.Date(hhfeb$Date, format = "%d/%m/%y")
+hhfeb$Date <- as.Date(hhfeb$Date, format = "%d/%m/%Y")
 DateTime <-paste(as.Date(hhfeb$Date),hhfeb$Time)
 hhfeb$DateTime <- as.POSIXct(DateTime)
 
@@ -19,7 +19,7 @@ with(hhfeb, {
       lines(Sub_metering_3~DateTime, col="Blue")
             
 })
-legend("topright", col = c("black","red","blue"), lty = 1, lwd = 2, xjust = 1,
+legend("topright", col = c("black","red","blue"), lty = 1, lwd = 2,
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
 #Plot into a png file

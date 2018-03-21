@@ -7,11 +7,11 @@ hhpower <- read.table("household_power_consumption.txt", header = TRUE, sep = ";
 
 #Create Data Subset and DateTime Column
 hhfeb <- subset(hhpower, Date %in% c("1/2/2007", "2/2/2007"))
-hhfeb$Date <- as.Date(hhfeb$Date, format = "%d/%m/%y")
+hhfeb$Date <- as.Date(hhfeb$Date, format = "%d/%m/%Y")
 DateTime <-paste(as.Date(hhfeb$Date),hhfeb$Time)
 hhfeb$DateTime <- as.POSIXct(DateTime)
 
-#Plot 3
+#Plot 4
 par(mfrow = c(2,2), mar = c(4,4,2,1), oma = c(0,0,2,0))
 
 with(hhfeb, {
